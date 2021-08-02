@@ -244,7 +244,7 @@ class InstructionReference(idaapi.simplecustviewer_t):
 
         con = sq.connect(":memory:")
         con.text_factory = str
-        con.executescript(open(dbpath).read())
+        con.executescript(open(dbpath, encoding='utf-8').read())
 
         cur = con.cursor()
         cur.execute("SELECT mnem, description FROM instructions")
